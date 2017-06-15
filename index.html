@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sales 2 Go</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="cache-control" content="max-age=0" />
+	<meta http-equiv="cache-control" content="no-cache" />
+	<meta http-equiv="expires" content="0" />
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1, width=device-width" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <style>
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 300;
+      src: local('Open Sans Light'), local('OpenSans-Light'), url(assets/DXI1ORHCpsQm3Vp6mXoaTaRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Open Sans'), local('OpenSans'), url(assets/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 600;
+      src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(assets/MTP_ySUJH_bn48VBG8sNSqRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+    }
+    @font-face {
+      font-family: 'Open Sans';
+      font-style: normal;
+      font-weight: 700;
+      src: local('Open Sans Bold'), local('OpenSans-Bold'), url(assets/k3k702ZOKiLJc3WVjuplzKRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+    }
+    </style>
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+    html {
+    	min-width: 500px;
+    	width: 100%;
+    	height: 100%;
+    	margin: 0px;
+    	padding: 0px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    body {
+        position: relative;
+    	width: 100%;
+    	height: 100%;
+    	margin: 0;
+    	padding: 0;
+    	overflow: hidden;
+    	font-family: 'Open Sans', sans-serif;
+        font-size: 87.5%;
+        line-height: normal;
+        color: #333;
+        -webkit-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+    }
+    button {
+    	font-family: 'Open Sans', sans-serif;
+    	outline: none;
+    	border: 0;
+    	box-shadow: none;
+    	margin: 0;
+    	padding: 0;
+    	background: none;
+    	user-select: none;
+    }
+    label{
+        font-family: 'Open Sans', sans-serif;
+    }
+    div {
+        font-family: 'Open Sans', sans-serif;
+    	user-select: none;
+    }
+    input {
+        font-family: 'Open Sans', sans-serif;
+    	border: none;
+    	margin: 0;
+    	outline: none;
+    }
+	input::-ms-clear {
+		display: none;
+	}
+    table {
+      font-family: 'Open Sans', sans-serif;
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    td,
+    th {
+      font-family: 'Open Sans', sans-serif;
+      padding: 0;
+    }
+
+    .Wrap {
+        font-family: 'Open Sans', sans-serif;
+    	width: 100%;
+    	height: 100%;
+    	position: absolute;
+    	top: 0;
+    	left: 0;
+    }
+
+	@media screen and (orientation:portrait) {
+		body * {
+			display: none;
+		}
+
+		body:after {
+			content: 'Please rotate your device to landscape mode.';
+			display: block;
+			font-weight: bold;
+			margin-top: -10px;
+			position: absolute;
+			text-align: center;
+			top: 50%;
+			width: 100%;
+		}
+	}
+    </style>
+    <script>
+    function checkClientlessVPN() {
+      var loc='';
+
+      try{
+          loc=DanaUrl(window.location.href);
+      }catch(err){
+        loc=window.location.href;
+      }
+
+      if(loc.indexOf('verizonbusiness.com/VRDMobile')>0 && loc.indexOf('checkClientlessVPN=true')<0){
+        console.log('Current URL :'+ loc);
+        var locNew=loc.replace('/VRDMobile','');
+        locNew=locNew+'/VRDMobile/?checkClientlessVPN=true';
+        console.log('Redirected URL : '+locNew);
+        window.location=locNew;
+      }
+    }
+    </script>
+</head>
+<body onload="checkClientlessVPN()">
+    <div style="display: none;">
+        <%
+        String eID = ""; // 7189132654
+        String vzIdFromSSO="";
+        if(request != null){
+            if(request.getHeader("EMP_VZW_EID")!=null){ // Getting the EID from VZW initially
+                eID=request.getHeader("EMP_VZW_EID"); // For EMP Platform
+            }else if(request.getHeader("EID")!=null){ // If not available look in regular headers
+                eID=request.getHeader("EID"); // Enterprise SSO
+            }else if(request.getHeader("SM_USERDN")!=null){
+                String tmp =request.getHeader("SM_USERDN"); // For VRDMobileEMP war file
+                try{
+                    eID = tmp.substring(tmp.indexOf('=')+1, tmp.indexOf(','));
+                }catch(Exception e){}
+            }
+
+            if(request.getHeader("SM_USER")!=null){
+              vzIdFromSSO=request.getHeader("SM_USER");
+            }
+
+            if(request.getHeader("EMP_VZW_SMUID")!=null && !"".equalsIgnoreCase(request.getHeader("EMP_VZW_SMUID"))) {
+              vzIdFromSSO=request.getHeader("EMP_VZW_SMUID");
+            }
+
+            request.setAttribute("eID", eID);
+            request.setAttribute("vzIdFromSSO", vzIdFromSSO);
+        }
+        %>
+    </div>
+    <script type="text/javascript">
+        // EID is implanted into the index.jsp page by the server and is emulated with a fixed value in index.html
+        var EID = '${fn:escapeXml(eID)}';
+
+        var vzIdFromSSO = '${fn:escapeXml(vzIdFromSSO)}';
+
+        console.log('vzIdFromSSO : '+vzIdFromSSO + '  , EID : '+EID);
+
+        if (EID.indexOf('{fn')>=0) {
+
+          if(window.location.href.indexOf('sitg')>0){
+            EID = '7334657782';
+            vzIdFromSSO = 'v040312';
+          }else if(window.location.href.indexOf('sitc')>0){
+            // EID = '3964662881'; // Getaneh
+            EID = '6681381334';  // Vishwas
+            vzIdFromSSO = 'V892718';
+          }else if(window.location.href.indexOf('localhost')>0){
+            EID = '3964662881';
+            vzIdFromSSO = 'V892718';
+          }else if(window.location.href.indexOf('ditg')>0){
+            EID = '7334657782'; // Joseph
+            vzIdFromSSO = 'v040312';
+          }else{
+            EID = '6681381334'; // Vishwas
+            vzIdFromSSO = 'v040312';
+          }
+          console.warn('Running in offline mode as [', EID, ']');
+        }
+    </script>
+    <script type="text/javascript">
+        var API_PATH = 'cwservices/VRDMobileAppService/';
+    </script>
+    <div id="root"></div>
+
+	<script>var buildInfo = {/*build_json_inject*/};</script>
+</body>
+</html>

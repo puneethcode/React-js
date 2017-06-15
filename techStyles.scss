@@ -1,0 +1,80 @@
+@import "../../styles/_common";
+
+.VZ_PrimaryContact {
+    opacity: $theme_card_opacity;
+    width: 78vw;
+    min-width: 454px;
+    max-height: 78vh;
+    position: absolute;
+    //top: 100px;
+    top: 13vh;
+    left: 2em;
+    border-right: 20px solid $theme_pcc_accent_color;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .ErrorTxt{
+        color: #cc9;
+        padding-right: 20px;
+        padding-left: 16vw;
+        font-size: 15px;
+        right: 10px;
+    }
+    .ErrorLabels {
+        color: #cc9;
+        float: left;
+        clear: left;
+        padding-top:5px;
+        width:100%;
+    }
+    .ClearBtn {
+        color: $vz_grey_light;
+        font-weight: bold;
+        font-size: 25px;
+        padding-left: 5px;
+    }
+        .BtnWrap {
+                .ContinueBtn {
+                    margin-right: 74%;
+                    color: #FFF;
+                    border: 1px solid #FFF;
+                    width: 120px;
+                    font-size: 15px;
+                    border-radius: 60px 60px 60px 60px;
+                    height: 40px;
+                }
+        }
+    .InputWraps {
+        width: 100%;
+        margin: 5px;
+        margin-left: 8%;
+    }
+    .Labels {
+        color: darkgrey;
+        width: 100%;
+        padding: 10px;
+        padding-left: 0px;
+        padding-bottom: 0px;
+        float: left;
+        font-size: 1.23em;
+        sup{
+            color: #cc9;
+        }
+    }
+    input {
+        box-sizing: border-box;
+        width: 45vw;
+        margin-right: 10px;
+        padding: 5px;
+        border: 0px;
+        border-bottom: 1px solid $vz_grey_light;
+        background: none;
+        font-size: 17px;
+        color: #FFF;
+        float: left;
+        font-weight: 600;
+    }
+}

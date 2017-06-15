@@ -1,0 +1,74 @@
+@import "../../../styles/_colors";
+
+.InitiateContract {
+	position: absolute;
+	width: 40%;
+	background: white;
+    border-radius: 10px;
+    padding: 20px;
+    background: #F3F3F3;
+	top: 20%;
+	left: 30%;
+	overflow: hidden;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.7);
+    .UpperWrap {
+        height: 65px;
+        width: 100%;
+    }
+	.ButtonLink {
+		font-size: 14px;
+		text-decoration: underline;
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
+	.ValidationError {
+		font-size: 12px;
+		color: #d00;
+	}
+    .InnerWrap {
+        background: #d8d8d8;
+        border-radius: 10px;
+        border: 2px solid #FFF;
+        padding: 15px;
+        .LabelTxt {
+            position: absolute;
+            border: 2px solid #FFF;
+            border-radius: 5px;
+            background: #f4f5f5;
+            width: 180px;
+            padding: 5px;
+            margin-top: -32px;
+            margin-left: 10px;
+        }
+    }
+    .InlineTxt {
+        float: left;
+        height: 52px;
+        line-height: 50px;
+    }
+    .InlineBtn {
+        float: right;
+        width: 64px;
+    }
+    .ContinueBtn {
+        color: #C00;
+        border: 1px solid #C00;
+        width: 100%;
+        font-size: 16px;
+        background-color: #FFF;
+        border-radius: 40px;
+        margin-top: 20px;
+        height: 40px;
+    }
+    .InputsWrap {
+        input {
+            width: 95%;
+            font-size: 15px;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            line-height: 15px;
+            margin-left: 2.5%;
+        }
+    }
+}
